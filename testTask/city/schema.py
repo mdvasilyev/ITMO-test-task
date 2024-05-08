@@ -1,6 +1,5 @@
 from typing import List
 
-from fastapi import Query
 from pydantic import BaseModel, Field
 from geoalchemy2.types import WKBElement
 from typing_extensions import Annotated
@@ -19,7 +18,7 @@ class Properties(BaseModel):
 
 
 class Geometry(BaseModel):
-    coordinates: List[List[Annotated[List[float], Query()]]]
+    coordinates: List[List[List[float]]]
     type: str = Field(default="Polygon")
 
 

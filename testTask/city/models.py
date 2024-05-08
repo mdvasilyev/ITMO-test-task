@@ -7,10 +7,10 @@ from testTask.db import Base
 class City(Base):
     __tablename__ = 'cities'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255))
-    country = Column(String(255))
-    geom = Column(Geometry('POLYGON', srid=4326))
+    id: int = Column(Integer, primary_key=True, autoincrement=True)
+    name: str = Column(String(255), unique=True)
+    country: str = Column(String(255))
+    geom: Geometry = Column(Geometry('POLYGON'))
 
     def __init__(self, name, country, geom):
         self.name = name
